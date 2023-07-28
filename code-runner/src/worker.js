@@ -1,9 +1,9 @@
-const { unlink, writeFileSync, readFileSync, unlinkSync } = require("fs");
+const { writeFileSync, unlinkSync } = require("fs");
 const { exec } = require("child_process");
 const redis = require("redis");
-const { stdout, stdin } = require("process");
+require('dotenv').config();
 
-const redisClient = redis.createClient();
+const redisClient = redis.createClient({ url: process.env.REDIS_URL });
 
 (async () => {
   redisClient.on("error", (error) => {
