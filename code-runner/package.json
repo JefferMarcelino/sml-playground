@@ -1,0 +1,18 @@
+{
+  "name": "code-runner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/worker.js",
+  "scripts": {
+    "dev": "nodemon -L ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "redis": "^4.6.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
