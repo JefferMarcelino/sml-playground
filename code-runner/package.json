@@ -1,15 +1,19 @@
 {
   "name": "code-runner",
   "version": "1.0.0",
-  "description": "",
+  "description": "Code Runner, responsible for run the SamoraLang code.",
   "main": "src/worker.js",
   "scripts": {
-    "dev": "nodemon -L ."
+    "dev": "nodemon -L .",
+    "start": "node ."
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "samora-lang"
+  ],
+  "author": "Jeffer Marcelino",
+  "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "redis": "^4.6.7"
   },
   "devDependencies": {
