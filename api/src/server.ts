@@ -14,9 +14,7 @@ interface RunRequestBody {
 const PORT = 3000;
 
 const app = Fastify();
-app.register(cors, {
-  origin: process.env.ORIGIN_URL
-});
+app.register(cors);
 const redisClient = Redis.createClient({ url: process.env.REDIS_URL });
 
 (async () => {
