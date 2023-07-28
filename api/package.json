@@ -1,14 +1,16 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "",
+  "description": "The API acts as an intermediary between the client and the code runner, facilitating the execution of Samora Lang code.",
   "main": "src/server.ts",
   "scripts": {
-    "dev": "tsx --watch ."
+    "dev": "tsx --watch .",
+    "build": "npm install && tsc",
+    "start": "node build/server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["samora-lang"],
+  "author": "Jeffer Marcelino",
+  "license": "MIT",
   "dependencies": {
     "@fastify/cors": "^8.3.0",
     "axios": "^1.4.0",
