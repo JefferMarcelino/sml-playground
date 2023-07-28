@@ -1,4 +1,5 @@
 import Fastify, { FastifyRequest } from "fastify";
+import cors from "@fastify/cors";
 import { v4 as uuidv4 } from "uuid";
 import * as Redis from "redis";
 import waitForResult from "./wait";
@@ -10,6 +11,9 @@ interface RunRequestBody {
 const PORT = 3000;
 
 const app = Fastify();
+app.register(cors, {
+  origin: "http://localhost:5173"
+});
 const redisClient = Redis.createClient();
 
 (async () => {
