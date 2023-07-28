@@ -1,8 +1,11 @@
 import Fastify, { FastifyRequest } from "fastify";
+import dotenv from 'dotenv';
 import cors from "@fastify/cors";
 import { v4 as uuidv4 } from "uuid";
 import * as Redis from "redis";
 import waitForResult from "./wait";
+
+dotenv.config();
 
 interface RunRequestBody {
   code: string;
@@ -12,9 +15,9 @@ const PORT = 3000;
 
 const app = Fastify();
 app.register(cors, {
-  origin: "http://localhost:5173"
+  origin: process.env.ORIGIN_URL
 });
-const redisClient = Redis.createClient();
+const redisClient = Redis.createClient({ url: process.env.REDIS_URL });
 
 (async () => {
   redisClient.on("error", (error) => {

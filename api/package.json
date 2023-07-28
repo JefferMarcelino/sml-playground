@@ -8,12 +8,15 @@
     "build": "npm install && tsc",
     "start": "node build/server.js"
   },
-  "keywords": ["samora-lang"],
+  "keywords": [
+    "samora-lang"
+  ],
   "author": "Jeffer Marcelino",
   "license": "MIT",
   "dependencies": {
     "@fastify/cors": "^8.3.0",
     "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
     "fastify": "^4.21.0",
     "redis": "^4.6.7",
     "uuid": "^9.0.0"
