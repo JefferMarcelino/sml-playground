@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  api:
+    build: ./api
+    container_name: api_c
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./api:/app
+      - /app/node_modules
+    network_mode: "host"
+  code-runner:
+    build: ./code-runner
+    container_name: code-runner_c
+    volumes:
+      - ./code-runner:/app
+      - /app/node_modules
+      - /app/runtime
+    network_mode: "host"
