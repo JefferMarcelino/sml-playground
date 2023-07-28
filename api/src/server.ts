@@ -20,7 +20,7 @@ app.register(cors, {
 const redisClient = Redis.createClient({ url: process.env.REDIS_URL });
 
 (async () => {
-  redisClient.on("error", (error) => {
+  redisClient.on("error", (error: Error) => {
     console.error(error)
     return;
   });
