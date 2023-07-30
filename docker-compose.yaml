@@ -8,6 +8,10 @@ services:
     volumes:
       - ./api:/app
       - /app/node_modules
+    env_file:
+      - .env
+    environment:
+      - ORIGIN_URL=http://localhost:5173
     network_mode: "host"
 
   code-runner:
@@ -17,6 +21,8 @@ services:
       - ./code-runner:/app
       - /app/node_modules
       - /app/runtime
+    env_file:
+      - .env
     network_mode: "host"
 
   redis:
