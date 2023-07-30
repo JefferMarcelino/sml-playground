@@ -8,7 +8,12 @@ services:
     volumes:
       - ./api:/app
       - /app/node_modules
+    env_file:
+      - .env
+    environment:
+      - ORIGIN_URL=http://localhost:5173
     network_mode: "host"
+
   code-runner:
     build: ./code-runner
     container_name: code-runner_c
@@ -16,4 +21,12 @@ services:
       - ./code-runner:/app
       - /app/node_modules
       - /app/runtime
+    env_file:
+      - .env
     network_mode: "host"
+
+  redis:
+    image: redis:7.0.12
+    container_name: redis_c
+    ports:
+      - "6379:6379"
