@@ -9,6 +9,7 @@ services:
       - ./api:/app
       - /app/node_modules
     network_mode: "host"
+
   code-runner:
     build: ./code-runner
     container_name: code-runner_c
@@ -17,3 +18,9 @@ services:
       - /app/node_modules
       - /app/runtime
     network_mode: "host"
+
+  redis:
+    image: redis:7.0.12
+    container_name: redis_c
+    ports:
+      - "6379:6379"
