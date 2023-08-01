@@ -1,11 +1,10 @@
-FROM golang:1.21-rc-alpine3.17 AS builder
+FROM node:18-alpine AS builder
 
 RUN apk update && apk add --no-cache git
 
 RUN git clone https://github.com/GraHms/Samora-Lang.git /go/src/github.com/GraHms/Samora-Lang
 
 WORKDIR /go/src/github.com/GraHms/Samora-Lang
-RUN go build -v ./...
 
 FROM node:18-alpine
 
@@ -18,7 +17,5 @@ COPY package*.json .
 RUN npm i
 
 COPY . .
-
-EXPOSE 4000
 
 CMD ["npm", "run", "start"]
