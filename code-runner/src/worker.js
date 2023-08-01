@@ -33,12 +33,8 @@ const processTask = async () => {
 
     writeFileSync(pathToTempFile, code);
 
-    exec("/app/runtime/samora " + pathToTempFile, (err, stdoutF, stderrF) => {
+    exec("/app/runtime/samora " + pathToTempFile, (err, stdout, stderr) => {
       unlinkSync(pathToTempFile);
-
-      const tempSwap = stdoutF;
-      const stdout = stderrF;
-      const stderr = tempSwap;
 
       if (err) {
         console.error("Execution error:", stderr);
