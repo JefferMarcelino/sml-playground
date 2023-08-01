@@ -2,7 +2,7 @@
   "name": "code-runner",
   "version": "1.0.0",
   "description": "Code Runner, responsible for run the SamoraLang code.",
-  "main": "src/worker.js",
+  "main": "src/server.js",
   "scripts": {
     "dev": "nodemon -L .",
     "start": "node ."
@@ -14,6 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "redis": "^4.6.7"
   },
   "devDependencies": {
