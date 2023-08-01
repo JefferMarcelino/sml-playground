@@ -8,6 +8,7 @@ services:
     volumes:
       - ./api:/app
       - /app/node_modules
+      - /app/build
     env_file:
       - .env
     environment:
