@@ -73,7 +73,7 @@ To contribute to the SamoraLang Playground, follow these steps:
    git push origin feat/new-feature
    ```
 
-8. **Submit a Pull Request (PR)**: Go to the [sml-playground repository](https://github.com/JefferMarcelino/sml-playground) on GitHub and click the "Compare & pull request" button for your branch. Provide a detailed description of your changes in the pull request, and submit it for review.
+8. **Submit a Pull Request (PR)**: Go to the [sml-playground repository](https://github.com/JefferMarcelino/sml-playground) repository on GitHub and click the "Compare & pull request" button for your branch. When creating the pull request, make sure to click on the "Create pull request" button within the pull request template to ensure you provide all the necessary information in a structured format.
 
 If you have any questions or need further assistance, feel free to reach out through GitHub or any other appropriate communication channels.
 
