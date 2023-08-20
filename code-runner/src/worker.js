@@ -55,7 +55,7 @@ const processTask = async () => {
 };
 
 const saveResult = (taskId, result) => {
-  redisClient.hSet("code_execution_results", taskId, result, (err, reply) => {
+  redisClient.hSet("code_execution_results", taskId, JSON.stringify(result), (err, reply) => {
     if (err) {
       console.error(err);
     }
