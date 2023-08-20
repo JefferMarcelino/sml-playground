@@ -7,9 +7,7 @@ async function waitForResult(taskId: string, redisClient: any): Promise<any> {
         if (result !== null && result !== undefined) {
           clearInterval(interval);
 
-          console.log(result);
-
-          resolve(result);
+          resolve(JSON.parse(result));
         }
       } catch (err) {
         clearInterval(interval);
