@@ -9,7 +9,7 @@ dotenv.config();
 
 interface RunRequestBody {
   code: string;
-};
+}
 
 const PORT = 3000;
 
@@ -36,14 +36,12 @@ app.post("/execute", async (req: FastifyRequest<{ Body: RunRequestBody }>, res) 
 
   try {
     await redisClient.lPush('code_execution_tasks', JSON.stringify({ code, taskId }), );
-
-    const result = await waitForResult(taskId, redisClient);
-
-    return { "result": result };
+    const {output, executionTime} = await waitForResult(taskId, redisClient);
+    return { "result": output, "time": executionTime };
   } catch (err) {
     console.error(err);
     res.status(500).send({ error: "Internal server error" });
-  };
+  }
 });
 
 app.listen({

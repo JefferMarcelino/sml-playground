@@ -17,6 +17,6 @@ async function waitForResult(taskId: string, redisClient: any): Promise<any> {
       }
     }, 500);
   });
-};
+}
 
 export default waitForResult;

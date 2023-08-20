@@ -32,17 +32,18 @@ const processTask = async () => {
     const pathToTempFile = "/app/runtime/code.sml"
 
     writeFileSync(pathToTempFile, code);
-
+    const start = performance.now();
     exec("/app/runtime/samora " + pathToTempFile, (err, stdout, stderr) => {
+      const end = performance.now();
+      const executionTime = end - start;
       unlinkSync(pathToTempFile);
-
       if (err) {
         console.error("Execution error:", stderr);
 
         saveResult(taskId, "Error executing Samora-Lang: " + stderr);
       } else {
         console.log("Execution result:", stdout);
-        saveResult(taskId, stdout);
+        saveResult(taskId, {output: stdout, executionTime});
       }
 
       // Process the next task
@@ -54,7 +55,7 @@ const processTask = async () => {
 };
 
 const saveResult = (taskId, result) => {
-  redisClient.hSet("code_execution_results", taskId, result, (err, reply) => {
+  redisClient.hSet("code_execution_results", taskId, JSON.stringify(result), (err, reply) => {
     if (err) {
       console.error(err);
     }
